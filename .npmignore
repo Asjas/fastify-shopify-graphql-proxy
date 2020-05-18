@@ -1,0 +1,6 @@
+.editorconfig
+.git
+.DS_Store
+.gitignore
+.github
+coverage/
