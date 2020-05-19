@@ -2,7 +2,6 @@ const fp = require('fastify-plugin');
 const proxy = require('fastify-reply-from');
 
 const PROXY_BASE_PATH = '/graphql';
-const GRAPHQL_PATH_PREFIX = '/admin/api';
 
 export enum ApiVersion {
   July19 = '2019-07',
@@ -10,17 +9,16 @@ export enum ApiVersion {
   January20 = '2020-01',
   April20 = '2020-04',
   July20 = '2020-07',
-  Unstable = 'unstable',
-  Unversioned = 'unversioned',
-}
-
-interface DefaultProxyOptions {
-  version: ApiVersion;
+  Stable = '2020-04',
 }
 
 interface ShopifySession {
   shop?: String;
   accessToken?: String;
+}
+
+interface DefaultProxyOptions {
+  version: ApiVersion;
 }
 
 interface PrivateShopOption extends DefaultProxyOptions {
@@ -30,25 +28,24 @@ interface PrivateShopOption extends DefaultProxyOptions {
 
 type ProxyOptions = PrivateShopOption | DefaultProxyOptions;
 
-async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, done) {
+async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   const session: ShopifySession = { shop: '', accessToken: '' };
 
   fastify.addHook('onRequest', async (request, _reply, _done) => {
-    if (request.url !== '/graphql' && request.method !== 'POST') {
+    if (request.url !== PROXY_BASE_PATH && request.method !== 'POST') {
       return;
     }
 
-    session.shop = request.session.shop;
-    session.accessToken = request.session.accessToken;
+    session.shop = request?.session?.shop;
+    session.accessToken = request?.session?.accessToken;
   });
 
   const shop = 'shop' in proxyOptions ? proxyOptions.shop : session.shop;
   const accessToken = 'password' in proxyOptions ? proxyOptions.password : session.accessToken;
-  const version = proxyOptions.version || ApiVersion.Unversioned;
+  const version = proxyOptions.version || ApiVersion.Stable;
 
   if (accessToken === null || shop === null) {
-    done(new Error('Unauthorized'));
-    return;
+    throw new Error('Unauthorized');
   }
 
   fastify.register(proxy, {
@@ -56,7 +53,7 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, done) {
   });
 
   fastify.post(PROXY_BASE_PATH, function(_request, reply) {
-    reply.from(`${shop}${GRAPHQL_PATH_PREFIX}/${version}/graphql.json`, {
+    reply.from(`${shop}/admin/api/${version}/graphql.json`, {
       rewriteRequestHeaders(_originalReq, headers) {
         const modifiedHeaders = {
           ...headers,
