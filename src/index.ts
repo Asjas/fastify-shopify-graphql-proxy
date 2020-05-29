@@ -1,7 +1,5 @@
-const fp = require('fastify-plugin');
-const proxy = require('fastify-reply-from');
-
-const PROXY_BASE_PATH = '/graphql';
+import fp from 'fastify-plugin';
+import proxy from 'fastify-reply-from';
 
 export enum ApiVersion {
   July19 = '2019-07',
@@ -10,6 +8,7 @@ export enum ApiVersion {
   April20 = '2020-04',
   July20 = '2020-07',
   Stable = '2020-04',
+  Unstable = 'Unstable',
 }
 
 interface ShopifySession {
@@ -22,8 +21,8 @@ interface DefaultProxyOptions {
 }
 
 interface PrivateShopOption extends DefaultProxyOptions {
-  password: string;
   shop: string;
+  password: string;
 }
 
 type ProxyOptions = PrivateShopOption | DefaultProxyOptions;
@@ -32,7 +31,7 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   const session: ShopifySession = { shop: '', accessToken: '' };
 
   fastify.addHook('onRequest', async (request, _reply, _done) => {
-    if (request.url !== PROXY_BASE_PATH && request.method !== 'POST') {
+    if (request.url !== '/graphql' && request.method !== 'POST') {
       return;
     }
 
@@ -44,7 +43,7 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   const accessToken = 'password' in proxyOptions ? proxyOptions.password : session.accessToken;
   const version = proxyOptions.version || ApiVersion.Stable;
 
-  if (accessToken === null || shop === null) {
+  if (accessToken === undefined || shop === undefined) {
     throw new Error('Unauthorized');
   }
 
@@ -52,7 +51,7 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
     base: shop,
   });
 
-  fastify.post(PROXY_BASE_PATH, function(_request, reply) {
+  fastify.post('/graphql', function(_request, reply) {
     reply.from(`${shop}/admin/api/${version}/graphql.json`, {
       rewriteRequestHeaders(_originalReq, headers) {
         const modifiedHeaders = {
@@ -67,7 +66,7 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   });
 }
 
-module.exports = fp(shopifyGraphQLProxy, {
-  fastify: '^2.0.0',
+export default fp(shopifyGraphQLProxy, {
+  fastify: '^3.0.0',
   name: 'fastify-shopify-graphql-proxy',
 });
