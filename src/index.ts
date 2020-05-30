@@ -1,7 +1,7 @@
 const fp = require('fastify-plugin');
 const proxy = require('fastify-reply-from');
 
-export enum ApiVersion {
+enum ApiVersion {
   July19 = '2019-07',
   October19 = '2019-10',
   January20 = '2020-01',
@@ -66,7 +66,9 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   });
 }
 
-module.exports = fp(shopifyGraphQLProxy, {
+exports.ApiVersion = ApiVersion;
+
+exports.shopifyGraphQLProxy = fp(shopifyGraphQLProxy, {
   fastify: '^3.0.0',
   name: 'fastify-shopify-graphql-proxy',
 });

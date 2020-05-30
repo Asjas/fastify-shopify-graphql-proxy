@@ -24,15 +24,15 @@ yarn add fastify-shopify-graphql-proxy
 
 ### Auth Based App
 
-This Fastify plugin will get the shop url and AccessToken from the current session of the logged-in store. _Note:_ You will need to use `fastify-session` for this to work.
+This Fastify plugin will get the shop url and AccessToken from the current session of the logged-in store. _*Note:*_ You will need to use `fastify-session` for this to work.
 
 ```js
+const fastifySession = require('fastify-session');
+const createShopifyAuth = require('fastify-koa-shopify-auth');
+const { shopifyGraphQLProxy, ApiVersion } = require('fastify-shopify-graphql-proxy');
 const fastify = require('fastify')({
   logger: true,
 });
-const fastifySession = require('fastify-session');
-const createShopifyAuth = require('fastify-koa-shopify-auth');
-const shopifyGraphQLProxy = require('fastify-shopify-graphql-proxy');
 
 app.register(fastifySession, { secret: 'a secret with minimum length of 32 characters' });
 
@@ -43,7 +43,7 @@ fastify.register(
 );
 
 fastify.register(shopifyGraphQLProxy, {
-  version: 'Stable',
+  version: ApiVersion.Stable,
 });
 
 fastify.listen(3000, function(err, address) {
@@ -61,15 +61,15 @@ fastify.listen(3000, function(err, address) {
 If you are creating a [private shopify app](https://help.shopify.com/en/manual/apps/private-apps), you can skip over the auth step and provide the shop url and password of the private Shopify app.
 
 ```js
+const { shopifyGraphQLProxy, ApiVersion } = require('fastify-shopify-graphql-proxy');
 const fastify = require('fastify')({
   logger: true,
 });
-const shopifyGraphQLProxy = require('fastify-shopify-graphql-proxy');
 
 fastify.register(shopifyGraphQLProxy, {
   shop: 'https://my-shopify-store.myshopify.com',
   password: 'PRIVATE_APP_API_KEY_PASSWORD',
-  version: 'Stable',
+  version: ApiVersion.Stable,
 });
 
 fastify.listen(3000, function(err, address) {
@@ -90,13 +90,25 @@ fastify.listen(3000, function(err, address) {
 {
   shop: "https://my-shopify-store.myshopify.com",
   password: "value",
-  version: "2020-04"
+  version: ApiVersion.Stable,
 }
 ```
 
 - `shop` (Default: `undefined`): a string value that is the Shopify URL for your store
 - `password` (Default: `undefined`): a string value that is the API Key password
-- `version` (Default: `Stable`): Shopify GraphQL version (example: `2020-04`, `Stable`).
+- `version` (Default: `Stable`): Shopify GraphQL version (example: `2020-04`, `Unstable`).
+
+Here are all the Shopify GraphQL versions available to use:
+
+```sh
+July19 = '2019-07',
+October19 = '2019-10',
+January20 = '2020-01',
+April20 = '2020-04',
+July20 = '2020-07',
+Stable = '2020-04',
+Unstable = 'Unstable',
+```
 
 ## License
 
