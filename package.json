@@ -1,11 +1,17 @@
 {
   "name": "fastify-shopify-graphql-proxy",
   "author": "A-J Roos",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/fastify-shopify-graphql-proxy.esm.js",
+  "keywords": [
+    "fastify",
+    "fastify-plugin",
+    "shopify",
+    "shopify-graphql-proxy"
+  ],
   "homepage": "https://github.com/Asjas/fastify-shopify-graphql-proxy#README.md",
   "bugs": {
     "url": "https://github.com/Asjas/fastify-shopify-graphql-proxy/issues",
