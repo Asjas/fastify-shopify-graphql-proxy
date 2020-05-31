@@ -1,4 +1,3 @@
-const fp = require('fastify-plugin');
 const proxy = require('fastify-reply-from');
 
 enum ApiVersion {
@@ -31,10 +30,6 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   const session: ShopifySession = { shop: '', accessToken: '' };
 
   fastify.addHook('onRequest', async (request, _reply, _done) => {
-    if (request.url !== '/graphql' && request.method !== 'POST') {
-      return;
-    }
-
     session.shop = request?.session?.shop;
     session.accessToken = request?.session?.accessToken;
   });
@@ -67,8 +62,4 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
 }
 
 exports.ApiVersion = ApiVersion;
-
-exports.shopifyGraphQLProxy = fp(shopifyGraphQLProxy, {
-  fastify: '^3.0.0',
-  name: 'fastify-shopify-graphql-proxy',
-});
+exports.shopifyGraphQLProxy = shopifyGraphQLProxy;
