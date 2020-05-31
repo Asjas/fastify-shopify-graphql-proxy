@@ -1,7 +1,7 @@
 {
   "name": "fastify-shopify-graphql-proxy",
   "author": "A-J Roos",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -38,7 +38,6 @@
     "prepare": "tsdx build"
   },
   "dependencies": {
-    "fastify-plugin": "1.6.1",
     "fastify-reply-from": "2.1.0"
   },
   "devDependencies": {
