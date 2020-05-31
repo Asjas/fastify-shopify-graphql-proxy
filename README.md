@@ -91,14 +91,14 @@ fastify.listen(3000, function(err, address) {
   shop: "https://my-shopify-store.myshopify.com",
   password: "value",
   version: ApiVersion.Stable,
-  prefix: "/shopify",
+  prefix: "/shopify",  // results in /shopify/graphql
 }
 ```
 
 - `shop` (Default: `undefined`): a string value that is the Shopify URL for your store
 - `password` (Default: `undefined`): a string value that is the API Key password
 - `version` (Default: `Stable`): Shopify GraphQL version (example: `2020-04`, `Unstable`).
-- `prefix` (Default: `undefined`): You can specify a custom path by specifying a route prefix.
+- `prefix` (Default: `undefined`): You can create a custom GraphQL path by specifying a route prefix.
 
 Here are all the Shopify GraphQL versions available to use:
 
