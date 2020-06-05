@@ -1,32 +1,7 @@
-const proxy = require('fastify-reply-from');
+import proxy from 'fastify-reply-from';
+import { ApiVersion, ShopifySession, ProxyOptions } from './types';
 
-enum ApiVersion {
-  July19 = '2019-07',
-  October19 = '2019-10',
-  January20 = '2020-01',
-  April20 = '2020-04',
-  July20 = '2020-07',
-  Stable = '2020-04',
-  Unstable = 'Unstable',
-}
-
-interface ShopifySession {
-  shop?: String;
-  accessToken?: String;
-}
-
-interface DefaultProxyOptions {
-  version: ApiVersion;
-}
-
-interface PrivateShopOption extends DefaultProxyOptions {
-  shop: string;
-  password: string;
-}
-
-type ProxyOptions = PrivateShopOption | DefaultProxyOptions;
-
-async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
+export default async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   const session: ShopifySession = { shop: '', accessToken: '' };
 
   fastify.addHook('onRequest', async (request, _reply, _done) => {
@@ -61,5 +36,4 @@ async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
   });
 }
 
-exports.ApiVersion = ApiVersion;
-exports.shopifyGraphQLProxy = shopifyGraphQLProxy;
+export { ApiVersion };
