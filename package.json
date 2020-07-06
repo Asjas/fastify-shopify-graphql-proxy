@@ -38,7 +38,7 @@
     "prepare": "tsdx build"
   },
   "dependencies": {
-    "fastify-reply-from": "2.1.0"
+    "fastify-reply-from": "2.2.0"
   },
   "devDependencies": {
     "husky": "4.2.5",

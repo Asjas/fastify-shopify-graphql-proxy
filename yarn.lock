@@ -2523,10 +2523,10 @@ fastify-plugin@^1.6.1:
   dependencies:
     semver "^6.3.0"
 
-fastify-reply-from@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-2.1.0.tgz#068bf5d1a38e578eee457c33f50520c4782e87fe"
-  integrity sha512-fHli+i/950KegBtF/xzoP+y2NmqdvbcAUpIRSy2FKDrzlpU6s1hnKEtzD7xwzvis2wG8wDogh/Ys6EmUgoTk8A==
+fastify-reply-from@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-2.2.0.tgz#f679205b294d7d4d2a8ec387fec8173531077c68"
+  integrity sha512-3PrY+Ssl9688SumyFH+bOXOU2+UsZaUO8CMZEiV722htfaD1Nr0H3fxyBpMpmyRdW/Jq8GF43+VpgxRIA9lMXg==
   dependencies:
     end-of-stream "^1.4.1"
     fastify-plugin "^1.6.1"
