@@ -2927,10 +2927,10 @@ fastify-plugin@^3.0.0:
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
   integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
 
-fastify-reply-from@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-4.0.2.tgz#14d0b9dee26bc15b2450483c001a360f9aacdd9c"
-  integrity sha512-O7wP3IAOVt6fq8klznQmYK9bq6ues6LHthK0M2160LydD3RRRbCUhkOueYTRX20dCLXwGbAQmxpdKR+BE8qTTQ==
+fastify-reply-from@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-5.0.0.tgz#b4da9fbfbd651c5ad793d8796acf6da6a301e812"
+  integrity sha512-rfutv+3xpZat2t/qDevXTymbcoZuQeprbaPkVMdtCZbrkjmuSykv+asoAl/lbr4Tglkevwjv8sKGiBonp06cBA==
   dependencies:
     end-of-stream "^1.4.1"
     fastify-plugin "^3.0.0"
@@ -2938,7 +2938,7 @@ fastify-reply-from@4.0.2:
     pump "^3.0.0"
     semver "^7.2.1"
     tiny-lru "^7.0.0"
-    undici "^2.1.0"
+    undici "^3.3.1"
 
 fb-watchman@^2.0.0:
   version "2.0.1"
@@ -6113,10 +6113,10 @@ typescript@^3.7.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.2.tgz#64e9c8e9be6ea583c54607677dd4680a1cf35db9"
   integrity sha512-q2ktq4n/uLuNNShyayit+DTobV2ApPEo/6so68JaD5ojvc/6GClBipedB9zNWYxRSAlZXAe405Rlijzl6qDiSw==
 
-undici@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-2.1.0.tgz#b03c8befce8498372f0e5525d8ea50845f86a1b4"
-  integrity sha512-4QOaapBV8JNs/mh3AA+72520OnFKNIJfA1c6Xq56NK51uI4zU3KpSQzrcBuJbMWu8ivaCj8hTcyDQefhEO4JdQ==
+undici@^3.3.1:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-3.3.3.tgz#a90a783a5605fd3d0e093624e261aae234646452"
+  integrity sha512-JcC6p86DLPDne5vhm9nZ9N6hW/WPCtO8/NV+7YHS+x/mQ+NpWvtGxIt28ObBsySPec8FsabyiLPhmn7Htl9w3A==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
