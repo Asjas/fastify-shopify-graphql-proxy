@@ -2927,10 +2927,10 @@ fastify-plugin@^3.0.0:
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
   integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
 
-fastify-reply-from@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-5.0.0.tgz#b4da9fbfbd651c5ad793d8796acf6da6a301e812"
-  integrity sha512-rfutv+3xpZat2t/qDevXTymbcoZuQeprbaPkVMdtCZbrkjmuSykv+asoAl/lbr4Tglkevwjv8sKGiBonp06cBA==
+fastify-reply-from@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/fastify-reply-from/-/fastify-reply-from-5.0.1.tgz#a3c8a10461e1208754beeaa1c15d198153b3ddea"
+  integrity sha512-lzWqGaTnMOxZCilR5ti5WcHR944D2QOf2DggY4qTOsmG+amW9522PVhqdxLiSQrl6YZQR7R4woIGFfGyykYAmw==
   dependencies:
     end-of-stream "^1.4.1"
     fastify-plugin "^3.0.0"
