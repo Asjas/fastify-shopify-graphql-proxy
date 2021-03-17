@@ -28,7 +28,7 @@ This Fastify plugin will get the shop url and AccessToken from the current sessi
 
 ```js
 const fastifySession = require('fastify-session');
-const createShopifyAuth = require('fastify-koa-shopify-auth');
+const createShopifyAuth = require('fastify-shopify-auth');
 const { shopifyGraphQLProxy, ApiVersion } = require('fastify-shopify-graphql-proxy');
 const fastify = require('fastify')({
   logger: true,
