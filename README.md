@@ -103,13 +103,15 @@ fastify.listen(3000, function(err, address) {
 Here are all the Shopify GraphQL versions available to use:
 
 ```sh
-July19 = '2019-07',
-October19 = '2019-10',
-January20 = '2020-01',
-April20 = '2020-04',
-July20 = '2020-07',
-Stable = '2020-04',
-Unstable = 'Unstable',
+October19 = '2019-10'
+January20 = '2020-01'
+April20 = '2020-04'
+July20 = '2020-07'
+October20 = '2020-10'
+January21 = '2021-01'
+Stable = '2021-01'
+Unstable = 'Unstable'
+Unversioned = 'unversioned'
 ```
 
 ## License
