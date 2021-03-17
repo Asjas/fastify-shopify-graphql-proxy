@@ -4,3 +4,4 @@
 .gitignore
 .github
 coverage/
+renovate.json
