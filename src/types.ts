@@ -11,8 +11,8 @@ export enum ApiVersion {
 }
 
 export interface ShopifySession {
-  shop?: String;
-  accessToken?: String;
+  shop?: string;
+  accessToken?: string;
 }
 
 export interface DefaultProxyOptions {
@@ -25,3 +25,12 @@ export interface PrivateShopOption extends DefaultProxyOptions {
 }
 
 export type ProxyOptions = PrivateShopOption | DefaultProxyOptions;
+
+declare module 'fastify' {
+  interface FastifyRequest {
+    session: {
+      shop: string;
+      accessToken: string;
+    };
+  }
+}
