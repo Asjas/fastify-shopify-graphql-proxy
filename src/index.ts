@@ -1,10 +1,12 @@
 import proxy from 'fastify-reply-from';
+import type { FastifyInstance } from 'fastify';
 import { ApiVersion, ShopifySession, ProxyOptions } from './types';
+import { IncomingHttpHeaders } from 'http';
 
-export default async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOptions, _done) {
+export default async function shopifyGraphQLProxy(fastify: FastifyInstance, proxyOptions: ProxyOptions) {
   const session: ShopifySession = { shop: '', accessToken: '' };
 
-  fastify.addHook('onRequest', async (request, _reply, _done) => {
+  fastify.addHook('onRequest', async (request) => {
     session.shop = request?.session?.shop;
     session.accessToken = request?.session?.accessToken;
   });
@@ -28,7 +30,7 @@ export default async function shopifyGraphQLProxy(fastify, proxyOptions: ProxyOp
           ...headers,
           'Content-Type': 'application/json',
           'X-Shopify-Access-Token': accessToken,
-        };
+        } as IncomingHttpHeaders;
 
         return modifiedHeaders;
       },
