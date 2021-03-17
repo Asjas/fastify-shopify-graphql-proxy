@@ -1,7 +1,7 @@
 import proxy from 'fastify-reply-from';
 import type { FastifyInstance } from 'fastify';
-import { ApiVersion, ShopifySession, ProxyOptions } from './types';
 import { IncomingHttpHeaders } from 'http';
+import { ApiVersion, ShopifySession, ProxyOptions } from './types';
 
 export default async function shopifyGraphQLProxy(fastify: FastifyInstance, proxyOptions: ProxyOptions) {
   const session: ShopifySession = { shop: '', accessToken: '' };
