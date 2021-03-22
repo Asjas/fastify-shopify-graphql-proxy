@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "fastify": "3.14.0",
-    "fastify-reply-from": "5.0.2"
+    "fastify-reply-from": "5.1.0"
   },
   "devDependencies": {
     "@types/node": "14.14.35",
