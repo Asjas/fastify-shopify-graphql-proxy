@@ -1,11 +1,10 @@
 {
   "name": "fastify-shopify-graphql-proxy",
   "author": "A-J Roos",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "module": "dist/fastify-shopify-graphql-proxy.esm.js",
+  "main": "src/index.js",
+  "typings": "src/types.ts",
   "keywords": [
     "fastify",
     "fastify-plugin",
@@ -15,48 +14,59 @@
   "homepage": "https://github.com/Asjas/fastify-shopify-graphql-proxy#README.md",
   "bugs": {
     "url": "https://github.com/Asjas/fastify-shopify-graphql-proxy/issues",
-    "email": "asjas@outlook.com"
+    "email": "asjas@hey.com"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Asjas/fastify-shopify-graphql-proxy.git"
   },
   "files": [
-    "dist",
     "src"
   ],
   "engines": {
     "node": ">=12"
   },
   "scripts": {
-    "start": "tsdx watch --target node",
-    "build": "tsdx build --target node",
-    "test": "tsdx test",
-    "test:watch": "tsdx test --watch",
-    "test:coverage": "tsdx test --coverage",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "build": "tsc -p tsconfig.json",
+    "test": "tap",
+    "test:w": "tap -w",
+    "test:inspect": "tap -O -T --node-arg=--inspect-brk",
+    "coverage": "npm test -- --coverage-report=lcov",
+    "check-types": "tsc",
+    "lint": "eslint --ext .ts .",
+    "lint-fix": "npm run lint -- --fix",
+    "prettier": "prettier --ignore-path .eslintignore \"**/*.+(ts)\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different",
+    "validate": "npm-run-all --parallel check-types check-format lint build"
   },
   "dependencies": {
-    "fastify": "3.17.0",
     "fastify-reply-from": "5.3.0"
   },
   "devDependencies": {
     "@types/node": "14.17.2",
+    "eslint-config-asjas": "0.0.25",
+    "fastify": "3.17.0",
     "husky": "6.0.0",
-    "tsdx": "0.14.1",
+    "lint-staged": "11.0.0",
+    "npm-run-all": "4.1.5",
+    "tap": "15.0.9",
+    "ts-node": "10.0.0",
     "tslib": "2.2.0",
     "typescript": "4.3.2"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "npm run check-types && lint-staged && npm run build"
     }
   },
-  "prettier": {
-    "printWidth": 120,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
+  "lint-staged": {
+    "*.+(ts)": [
+      "eslint"
+    ],
+    "**/**/*.+(ts)": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

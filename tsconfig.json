@@ -1,12 +1,14 @@
 {
   "include": ["src"],
+  "exclude": ["node_modules", ".nyc_output"],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "CommonJS",
     "lib": ["esnext"],
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
     "rootDir": "./src",
+    "outDir": "./dist",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -16,7 +18,7 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "*": ["src/*", "node_modules/*"]
+      "*": ["src/*", "test/*", "node_modules/*"]
     },
     "esModuleInterop": true
   }

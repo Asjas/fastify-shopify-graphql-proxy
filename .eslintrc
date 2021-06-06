@@ -1,0 +1,16 @@
+{
+  "extends": ["eslint-config-asjas/node-typescript"],
+  "parserOptions": {
+    "tsconfigRootDir": ".",
+    "project": "tsconfig.json"
+  },
+  "rules": {
+    "no-shadow": 0,
+    "node/no-unpublished-import": [
+      "error",
+      {
+        "allowModules": ["fastify", "tap"]
+      }
+    ]
+  }
+}
