@@ -21,7 +21,8 @@
     "url": "https://github.com/Asjas/fastify-shopify-graphql-proxy.git"
   },
   "files": [
-    "src"
+    "src",
+    "dist"
   ],
   "engines": {
     "node": ">=12"
