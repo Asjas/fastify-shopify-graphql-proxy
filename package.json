@@ -3,8 +3,8 @@
   "author": "A-J Roos",
   "version": "0.11.1",
   "license": "MIT",
-  "main": "src/index.js",
-  "typings": "src/types.ts",
+  "main": "dist/index.js",
+  "typings": "dist/types.d.ts",
   "keywords": [
     "fastify",
     "fastify-plugin",
