@@ -9,6 +9,7 @@
     "sourceMap": true,
     "rootDir": "./src",
     "outDir": "./dist/main",
+    "declarationDir": "dist/types",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
