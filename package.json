@@ -32,7 +32,7 @@
     "build": "npm run build:main && npm run build:module",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
-    "test": "tap --node-arg=--require=ts-node/register - tsconfig.json",
+    "test": "tap",
     "test:w": "tap -w",
     "test:inspect": "tap -O -T --node-arg=--inspect-brk",
     "coverage": "npm test -- --coverage-report=lcov",
