@@ -1,11 +1,9 @@
 export const enum ApiVersion {
-  October19 = "2019-10",
-  January20 = "2020-01",
-  April20 = "2020-04",
-  July20 = "2020-07",
-  October20 = "2020-10",
   January21 = "2021-01",
-  Stable = "2021-01",
+  April21 = "2021-04",
+  July21 = "2021-07",
+  October21 = "2021-10",
+  Stable = "2021-10",
   Unstable = "Unstable",
   Unversioned = "unversioned",
 }
