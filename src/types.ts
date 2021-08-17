@@ -1,4 +1,4 @@
-export const enum ApiVersion {
+export enum ApiVersion {
   January21 = "2021-01",
   April21 = "2021-04",
   July21 = "2021-07",
