@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@types/node": "16.11.6",
-    "eslint-config-asjas": "0.2.2",
+    "eslint-config-asjas": "1.0.0",
     "fastify": "3.22.1",
     "husky": "7.0.4",
     "lint-staged": "11.2.5",
