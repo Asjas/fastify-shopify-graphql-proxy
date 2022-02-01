@@ -48,7 +48,7 @@
     "fastify-reply-from": "6.4.2"
   },
   "devDependencies": {
-    "@types/node": "16.11.21",
+    "@types/node": "16.11.22",
     "eslint-config-asjas": "1.0.0",
     "fastify": "3.27.0",
     "husky": "7.0.4",
