@@ -45,7 +45,7 @@
     "validate": "npm-run-all --parallel check-types check-format lint build"
   },
   "dependencies": {
-    "fastify-reply-from": "6.4.3"
+    "fastify-reply-from": "6.5.0"
   },
   "devDependencies": {
     "@types/node": "16.11.25",
