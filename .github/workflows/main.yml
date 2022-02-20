@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Main
 
 on:
   push:
@@ -12,19 +12,23 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node: ["12", "14", "16"]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup node ${{ matrix.node }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
       - run: npm i
-      - run: npm test
-      - run: npm run validate
 
-      - name: Run the tests and generate coverage report
+      - name: Run the tests
+        run: npm test
+
+      - name: Run validation npm script
+        run: npm run validate
+
+      - name: Generate coverage report
         run: npm run coverage
 
       - name: Upload coverage to Codecov
