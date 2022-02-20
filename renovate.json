@@ -1,5 +1,7 @@
 {
-  "extends": [
-    "config:base"
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "timezone": "Africa/Johannesburg",
+  "packageRules": [
+    { "matchPackagePatterns": ["*"], "matchCurrentVersion": "!/^0/", "rebaseWhen": "auto", "automerge": true }
   ]
 }
