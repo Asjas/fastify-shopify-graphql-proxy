@@ -20,17 +20,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: pnpm/action-setup@v2.1.0
-        with:
-          version: latest
-      - run: pnpm i
-      - run: pnpm run validate
-      - run: pnpm test
+      - run: npm i
+      - run: npm run validate
+      # - run: npm test
 
-      - name: Run the tests and generate coverage report
-        run: pnpm run coverage
+      # - name: Run the tests and generate coverage report
+      #   run: npm run coverage
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v2
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
