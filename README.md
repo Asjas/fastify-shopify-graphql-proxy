@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/fastify-shopify-graphql-proxy.svg)](https://badge.fury.io/js/fastify-shopify-graphql-proxy)
 [![codecov](https://codecov.io/gh/Asjas/fastify-shopify-graphql-proxy/branch/master/graph/badge.svg?token=IHWSO9MQ7B)](https://codecov.io/gh/Asjas/fastify-shopify-graphql-proxy)
 [![Main WorkFlow](https://github.com/Asjas/fastify-shopify-graphql-proxy/actions/workflows/main.yml/badge.svg)](https://github.com/Asjas/fastify-shopify-graphql-proxy/actions/workflows/main.yml)
-[![CodeQL WorkFlow](https://github.com/Asjas/fastify-shopify-graphql-proxy/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Asjas/fastify-shopify-graphql-proxy/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/Asjas/fastify-shopify-graphql-proxy/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Asjas/fastify-shopify-graphql-proxy/actions/workflows/codeql-analysis.yml)
 
 `fastify-shopify-graphql-proxy` is a plugin for the [Fastify](https://github.com/fastify/fastify) framework that is
 based on [koa-shopify-graphql-proxy](https://github.com/Shopify/quilt/tree/master/packages/koa-shopify-graphql-proxy).
