@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: npm run validate
       - run: npm test
+      - run: npm run validate
 
       - name: Run the tests and generate coverage report
         run: npm run coverage
