@@ -17,6 +17,7 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
       "*": ["src/*", "test/*", "node_modules/*"]
