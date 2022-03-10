@@ -24,67 +24,71 @@ npm install fastify-shopify-graphql-proxy
 yarn add fastify-shopify-graphql-proxy
 ```
 
-## Example
+## Code Examples
 
-### Auth Based App (Not currently possible)
+### Custom App
 
-This Fastify plugin will get the shop url and AccessToken from the current session of the logged-in store. _*Note:*_ You
-will need to use `fastify-session` for this to work.
+If you are creating a [Custom Shopify app](https://help.shopify.com/en/manual/apps/custom-apps), you can skip over the
+auth step and provide the `shop url` and `password`.
 
 ```js
-const fastifySession = require("fastify-session");
-const createShopifyAuth = require("fastify-shopify-auth");
-const { shopifyGraphQLProxy, ApiVersion } = require("fastify-shopify-graphql-proxy");
-const fastify = require("fastify")({
+import { shopifyGraphQLProxy, ApiVersion } from "fastify-shopify-graphql-proxy";
+import Fastify from "fastify";
+
+const server = Fastify({
   logger: true,
 });
 
-app.register(fastifySession, { secret: "a secret with minimum length of 32 characters" });
+server.register(shopifyGraphQLProxy, {
+  shop: "https://my-shopify-store.myshopify.com",
+  password: "PRIVATE_APP_API_KEY_PASSWORD",
+  version: ApiVersion.Stable, // API Version "2022-04"
+});
 
-fastify.register(
+server.listen(3000, function (err, address) {
+  if (err) {
+    server.log.error(err);
+    process.exit(1);
+  }
+
+  server.log.info(`server listening on ${address}`);
+});
+```
+
+### Public App (Not currently possible)
+
+This Fastify plugin will get the shop url and AccessToken from the current session of the logged-in store. _Note:_ You
+will need to use `fastify-session` for this to work.
+
+```js
+import fastifySession from "fastify-session";
+import createShopifyAuth from "fastify-shopify-auth";
+import { shopifyGraphQLProxy, ApiVersion } from "fastify-shopify-graphql-proxy";
+import Fastify from "fastify";
+
+const server = Fastify({
+  logger: true,
+});
+
+server.register(fastifySession, { secret: "a secret with a minimum length of 32 characters" });
+
+server.register(
   createShopifyAuth({
     /* your config here */
   }),
 );
 
-fastify.register(shopifyGraphQLProxy, {
-  version: ApiVersion.Stable,
+server.register(shopifyGraphQLProxy, {
+  version: ApiVersion.Stable, // API Version "2022-04"
 });
 
-fastify.listen(3000, function (err, address) {
+server.listen(3000, function (err, address) {
   if (err) {
-    fastify.log.error(err);
+    server.log.error(err);
     process.exit(1);
   }
 
-  fastify.log.info(`server listening on ${address}`);
-});
-```
-
-### Private App
-
-If you are creating a [private shopify app](https://help.shopify.com/en/manual/apps/private-apps), you can skip over the
-auth step and provide the shop url and password of the private Shopify app.
-
-```js
-const { shopifyGraphQLProxy, ApiVersion } = require("fastify-shopify-graphql-proxy");
-const fastify = require("fastify")({
-  logger: true,
-});
-
-fastify.register(shopifyGraphQLProxy, {
-  shop: "https://my-shopify-store.myshopify.com",
-  password: "PRIVATE_APP_API_KEY_PASSWORD",
-  version: ApiVersion.Stable,
-});
-
-fastify.listen(3000, function (err, address) {
-  if (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-
-  fastify.log.info(`server listening on ${address}`);
+  server.log.info(`server listening on ${address}`);
 });
 ```
 
