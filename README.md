@@ -15,12 +15,20 @@ Any `POST` request made to `/graphql` will be proxied to Shopify's GraphQL API a
 
 ## Requirements
 
-Node.js v10 or later. Fastify v3.0.0 or later.
+- Fastify v3.0.0 or later.
+- Node.js (12.x, 14.x, 16.x)
 
-## Installation
+## Quick Start
+
+Install the package using `npm`:
 
 ```sh
-npm install fastify-shopify-graphql-proxy
+npm i --save-exact fastify-shopify-graphql-proxy
+```
+
+or `yarn`:
+
+```sh
 yarn add fastify-shopify-graphql-proxy
 ```
 
