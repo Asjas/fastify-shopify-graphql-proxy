@@ -1,3 +1,4 @@
+node-arg: [--require=ts-node/register, --loader=ts-node/esm, --experimental-specifier-resolution=node]
 ts: true
 jsx: false
 flow: false
