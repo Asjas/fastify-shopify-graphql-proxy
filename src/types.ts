@@ -1,11 +1,12 @@
 import { IncomingHttpHeaders } from "http";
 
 export enum ApiVersion {
-  January21 = "2021-01",
-  April21 = "2021-04",
-  July21 = "2021-07",
+  April22 = "2022-04",
+  January22 = "2022-01",
   October21 = "2021-10",
-  Stable = "2021-10",
+  July21 = "2021-07",
+  April21 = "2021-04",
+  Stable = "2022-04",
   Unstable = "Unstable",
   Unversioned = "unversioned",
 }
