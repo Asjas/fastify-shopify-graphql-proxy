@@ -1,3 +1,5 @@
+import { IncomingHttpHeaders } from "http";
+
 export enum ApiVersion {
   January21 = "2021-01",
   April21 = "2021-04",
@@ -6,6 +8,10 @@ export enum ApiVersion {
   Stable = "2021-10",
   Unstable = "Unstable",
   Unversioned = "unversioned",
+}
+
+export interface ShopifyIncomingHTTPHeaders extends IncomingHttpHeaders {
+  "X-Shopify-Access-Token": string;
 }
 
 export interface ShopifySession {
