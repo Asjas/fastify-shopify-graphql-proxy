@@ -1,6 +1,6 @@
 import { test } from "tap";
 import fastify from "fastify";
-import shopifyGraphQLProxy, { ApiVersion } from ".";
+import shopifyGraphQLProxy, { ApiVersion } from "../src";
 
 test("expect request failure due to using test `shop` and `password` options", async (t) => {
   t.plan(1);
