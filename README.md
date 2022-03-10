@@ -9,7 +9,7 @@
 
 `fastify-shopify-graphql-proxy` is a plugin for the [Fastify](https://github.com/fastify/fastify) framework that is
 based on [koa-shopify-graphql-proxy](https://github.com/Shopify/quilt/tree/master/packages/koa-shopify-graphql-proxy).
-It allows for proxying of GraphQL requests from an embedded shopify app to Shopify's GraphQL API.
+It allows for proxying of GraphQL requests from an embedded Shopify app to Shopify's GraphQL API.
 
 Any `POST` request made to `/graphql` will be proxied to Shopify's GraphQL API and the response will be returned.
 
@@ -102,21 +102,12 @@ server.listen(3000, function (err, address) {
 
 ## API
 
-`fastify-shopify-graphql-proxy` accepts the following options object:
-
-```js
-{
-  shop: "https://my-shopify-store.myshopify.com",
-  password: "value",
-  version: ApiVersion.Stable,
-  prefix: "/shopify",  // results in /shopify/graphql
-}
-```
+`fastify-shopify-graphql-proxy` accepts the following `options` object:
 
 - `shop` (Default: `undefined`): a string value that is the Shopify URL for your store
 - `password` (Default: `undefined`): a string value that is the API Key password
-- `version` (Default: `Stable`): Shopify GraphQL version (example: `2020-04`, `Unstable`).
-- `prefix` (Default: `undefined`): You can create a custom GraphQL path by specifying a route prefix.
+- `version` (Default: `Stable`): Shopify GraphQL version (example: `"2022-04"`).
+- `prefix` (Default: `undefined`): You can create a `custom path` for the GraphQL endpoint by specifying a route prefix.
 
 Here are all the Shopify API GraphQL versions that can be imported and used from `ApiVersion`:
 
