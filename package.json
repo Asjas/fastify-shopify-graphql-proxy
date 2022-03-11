@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/types.d.ts",
+  "type": "module",
   "exports": {
     ".": "./dist/index.js",
     "./*": "./dist/*/index.js",
