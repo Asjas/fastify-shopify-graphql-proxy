@@ -3,19 +3,22 @@ import type { FastifyInstance } from "fastify";
 import { ShopifySession, ProxyOptions, ApiVersion, ShopifyIncomingHTTPHeaders } from "./types";
 
 export default async function shopifyGraphQLProxy(fastify: FastifyInstance, proxyOptions: ProxyOptions) {
-  const session: ShopifySession = { shop: "", accessToken: "" };
+  const session: ShopifySession = { shop: undefined, accessToken: undefined };
 
   fastify.addHook("onRequest", (request, _reply, done) => {
-    session.shop = request?.session?.shop;
-    session.accessToken = request?.session?.accessToken;
+    if (request.session) {
+      session.shop = request.session.shop;
+      session.accessToken = request.session.accessToken;
+    }
+
     done();
   });
 
   const shop = "shop" in proxyOptions ? proxyOptions.shop : session.shop;
-  const accessToken = "password" in proxyOptions ? proxyOptions.password : session.accessToken;
+  const accessToken = "password" in proxyOptions ? proxyOptions.accessToken : session.accessToken;
   const version = proxyOptions.version || ApiVersion.Stable;
 
-  if (accessToken === "" || shop === "") {
+  if (accessToken == null || shop == null) {
     throw new Error("Unauthorized, Shopify `accessToken` or `shop` arguments are empty.");
   }
 
