@@ -5,6 +5,9 @@ node_modules
 dist
 build
 
+# don't lint test folder
+test
+
 # don't lint cache output
 .cache
 .next
