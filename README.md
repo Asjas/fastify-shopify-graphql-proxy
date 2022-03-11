@@ -49,7 +49,7 @@ const server = Fastify({
 
 server.register(shopifyGraphQLProxy, {
   shop: "https://my-shopify-store.myshopify.com",
-  password: "PRIVATE_APP_API_KEY_PASSWORD",
+  password: "SHOPIFY_API_ACCESS_TOKEN",
   version: ApiVersion.Stable, // API Version "2022-04"
 });
 

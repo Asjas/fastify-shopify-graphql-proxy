@@ -8,7 +8,7 @@ test("expect request failure due to using test `shop` and `password` options", a
 
   await server.register(shopifyGraphQLProxy, {
     shop: "https://my-shopify-store.myshopify.com",
-    password: "PRIVATE_APP_API_KEY_PASSWORD",
+    password: "SHOPIFY_API_ACCESS_TOKEN",
     version: ApiVersion.Stable,
   });
 
@@ -28,7 +28,7 @@ test("throws error if `shop` option isn't passed to plugin", async (t) => {
     const server = fastify({ logger: false });
 
     await server.register(shopifyGraphQLProxy, {
-      password: "PRIVATE_APP_API_KEY_PASSWORD",
+      password: "SHOPIFY_API_ACCESS_TOKEN",
       version: ApiVersion.Stable,
     });
 
