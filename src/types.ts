@@ -11,31 +11,26 @@ export enum ApiVersion {
   Unversioned = "unversioned",
 }
 
-export interface ShopifyIncomingHTTPHeaders extends IncomingHttpHeaders {
-  "X-Shopify-Access-Token": string;
-}
-
 export interface ShopifySession {
   shop?: string;
   accessToken?: string;
 }
 
-export interface DefaultProxyOptions {
-  version: ApiVersion;
+export interface ShopifyIncomingHTTPHeaders extends IncomingHttpHeaders {
+  "X-Shopify-Access-Token": string;
 }
 
-export interface PrivateShopOption extends DefaultProxyOptions {
-  shop: string;
-  password: string;
+export interface ProxyOptions {
+  shop?: string;
+  accessToken?: string;
+  version?: ApiVersion;
 }
-
-export type ProxyOptions = PrivateShopOption | DefaultProxyOptions;
 
 declare module "fastify" {
   interface FastifyRequest {
     session: {
-      shop: string;
-      accessToken: string;
+      shop?: string;
+      accessToken?: string;
     };
   }
 }
