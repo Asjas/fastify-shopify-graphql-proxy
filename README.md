@@ -40,7 +40,7 @@ If you are creating a [Custom Shopify app](https://help.shopify.com/en/manual/ap
 auth step and provide the `shop url` and `password`.
 
 ```js
-import { shopifyGraphQLProxy, ApiVersion } from "fastify-shopify-graphql-proxy";
+import shopifyGraphQLProxy, { ApiVersion } from "fastify-shopify-graphql-proxy";
 import Fastify from "fastify";
 
 const server = Fastify({
@@ -71,7 +71,7 @@ will need to use `fastify-session` for this to work.
 ```js
 import fastifySession from "fastify-session";
 import createShopifyAuth from "fastify-shopify-auth";
-import { shopifyGraphQLProxy, ApiVersion } from "fastify-shopify-graphql-proxy";
+import shopifyGraphQLProxy, { ApiVersion } from "fastify-shopify-graphql-proxy";
 import Fastify from "fastify";
 
 const server = Fastify({
