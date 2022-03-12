@@ -6,10 +6,8 @@ export default async function shopifyGraphQLProxy(fastify: FastifyInstance, prox
   const session: ShopifySession = { shop: undefined, accessToken: undefined };
 
   fastify.addHook("onRequest", (request, _reply, done) => {
-    if (request.session) {
-      session.shop = request.session.shop;
-      session.accessToken = request.session.accessToken;
-    }
+    session.shop = request?.session?.shop;
+    session.accessToken = request?.session?.accessToken;
 
     done();
   });
