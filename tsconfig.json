@@ -4,15 +4,13 @@
   "compilerOptions": {
     "outDir": "dist",
     "incremental": true,
-    "target": "ES2021",
+    "target": "ES2019",
     "module": "ESNext",
     "lib": ["ESNEXT"],
     "moduleResolution": "Node",
     "declaration": true,
     "pretty": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
   }
 }
