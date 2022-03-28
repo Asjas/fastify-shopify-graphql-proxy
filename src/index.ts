@@ -38,5 +38,3 @@ export default async function shopifyGraphQLProxy(fastify: FastifyInstance, prox
     });
   });
 }
-
-export { ApiVersion };
