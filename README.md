@@ -1,6 +1,6 @@
 # `fastify-shopify-graphql-proxy`
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+[![License: Hippocratic 3.0](https://img.shields.io/badge/License-Hippocratic_3.0-lightgrey.svg)](https://firstdonoharm.dev)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![npm version](https://badge.fury.io/js/fastify-shopify-graphql-proxy.svg)](https://badge.fury.io/js/fastify-shopify-graphql-proxy)
 [![codecov](https://codecov.io/gh/Asjas/fastify-shopify-graphql-proxy/branch/master/graph/badge.svg?token=IHWSO9MQ7B)](https://codecov.io/gh/Asjas/fastify-shopify-graphql-proxy)
@@ -13,10 +13,17 @@ It allows for proxying of GraphQL requests from an embedded Shopify app to Shopi
 
 Any `POST` request made to `/graphql` will be proxied to Shopify's GraphQL API and the response will be returned.
 
-## Requirements
+## Supported Fastify versions
 
-- Fastify v3.0.0 or later.
-- Node.js (12.x, 14.x, 16.x)
+- Fastify v3
+
+## Supported Node.js versions
+
+The latest versions of the following Node.js versions are tested and supported.
+
+- 12
+- 14
+- 16
 
 ## Quick Start
 
@@ -30,6 +37,12 @@ or `yarn`:
 
 ```sh
 yarn add fastify-shopify-graphql-proxy
+```
+
+or `pnpm`:
+
+```sh
+pnpm add prisma-redis-middleware
 ```
 
 ## Code Examples
@@ -121,7 +134,3 @@ Stable = "2022-04"
 Unstable = 'Unstable'
 Unversioned = 'unversioned'
 ```
-
-## License
-
-[MIT License](LICENSE)
