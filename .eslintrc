@@ -5,6 +5,7 @@
     "project": "tsconfig.json"
   },
   "rules": {
+    "no-shadow": 0,
     "no-undefined": 0,
     "node/no-unpublished-import": [
       "error",
