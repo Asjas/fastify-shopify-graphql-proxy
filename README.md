@@ -115,7 +115,7 @@ server.listen(3000, function (err, address) {
 
 ## API
 
-### `fastify-shopify-graphql-proxy(opts)`
+### `shopifyGraphQLProxy(opts)`
 
 Options:
 
