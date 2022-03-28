@@ -16,7 +16,7 @@ export interface ShopifySession {
   accessToken?: string;
 }
 
-export interface ShopifyIncomingHTTPHeaders extends IncomingHttpHeaders {
+export interface ShopifyHTTPHeaders extends IncomingHttpHeaders {
   "X-Shopify-Access-Token": string;
 }
 

@@ -1,6 +1,6 @@
 import proxy from "fastify-reply-from";
 import type { FastifyInstance } from "fastify";
-import { ShopifySession, ProxyOptions, ApiVersion, ShopifyIncomingHTTPHeaders } from "./types";
+import { ShopifySession, ProxyOptions, ApiVersion, ShopifyHTTPHeaders } from "./types";
 
 export default async function shopifyGraphQLProxy(fastify: FastifyInstance, proxyOptions: ProxyOptions) {
   const session: ShopifySession = { shop: undefined, accessToken: undefined };
@@ -27,7 +27,7 @@ export default async function shopifyGraphQLProxy(fastify: FastifyInstance, prox
   fastify.post("/graphql", (_request, reply) => {
     reply.from(`${shop}/admin/api/${version}/graphql.json`, {
       rewriteRequestHeaders(_originalReq, headers) {
-        const modifiedHeaders: ShopifyIncomingHTTPHeaders = {
+        const modifiedHeaders: ShopifyHTTPHeaders = {
           ...headers,
           "Content-Type": "application/json",
           "X-Shopify-Access-Token": accessToken,
