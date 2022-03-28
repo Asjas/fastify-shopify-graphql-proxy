@@ -1,3 +1,4 @@
+// @ts-ignore
 import { test } from "tap";
 import fastify from "fastify";
 import shopifyGraphQLProxy, { ApiVersion } from "../src";
