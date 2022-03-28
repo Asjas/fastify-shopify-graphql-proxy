@@ -5,7 +5,7 @@
   "description": "Fastify plugin to proxy requests to the Shopify GraphQL API.",
   "license": "Hippocratic-3.0",
   "main": "./dist/index.js",
-  "types": "./dist/types.d.ts",
+  "types": "./dist/index.d.ts",
   "source": "./src/index.ts",
   "module": "./dist/fastify-shopify-graphql-proxy.esm.js",
   "files": [
