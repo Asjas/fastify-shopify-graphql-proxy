@@ -115,10 +115,12 @@ server.listen(3000, function (err, address) {
 
 ## API
 
-`fastify-shopify-graphql-proxy` accepts the following `options` object:
+### `fastify-shopify-graphql-proxy(opts)`
+
+Options:
 
 - `shop` (Default: `undefined`): a string value that is the Shopify URL for your store
-- `password` (Default: `undefined`): a string value that is the API Key password
+- `accessToken` (Default: `undefined`): a string value that is the Custom App API Key
 - `version` (Default: `Stable`): Shopify GraphQL version (example: `"2022-04"`).
 - `prefix` (Default: `undefined`): You can create a `custom path` for the GraphQL endpoint by specifying a route prefix.
 
