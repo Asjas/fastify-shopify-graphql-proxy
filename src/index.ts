@@ -13,7 +13,7 @@ export default async function shopifyGraphQLProxy(fastify: FastifyInstance, prox
   });
 
   const shop = "shop" in proxyOptions ? proxyOptions.shop : session.shop;
-  const accessToken = "password" in proxyOptions ? proxyOptions.accessToken : session.accessToken;
+  const accessToken = "accessToken" in proxyOptions ? proxyOptions.accessToken : session.accessToken;
   const version = proxyOptions.version || ApiVersion.Stable;
 
   if (accessToken == null || shop == null) {
