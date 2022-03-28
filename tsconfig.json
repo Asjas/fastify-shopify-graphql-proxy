@@ -1,16 +1,22 @@
 {
   "include": ["src"],
-  "exclude": ["node_modules", ".nyc_output"],
   "compilerOptions": {
-    "outDir": "dist",
-    "incremental": true,
-    "target": "ES2019",
-    "module": "ESNext",
-    "lib": ["ESNEXT"],
-    "moduleResolution": "Node",
+    "module": "es2015",
+    "lib": ["es2019"],
+    "importHelpers": true,
     "declaration": true,
-    "pretty": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "sourceMap": true,
+    "rootDir": "./src",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   }
 }
