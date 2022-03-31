@@ -41,7 +41,7 @@ yarn add fastify-shopify-graphql-proxy
 or `pnpm`:
 
 ```sh
-pnpm add prisma-redis-middleware
+pnpm add fastify-shopify-graphql-proxy
 ```
 
 ## Code Examples
@@ -49,7 +49,7 @@ pnpm add prisma-redis-middleware
 ### Custom App
 
 If you are creating a [Custom Shopify app](https://help.shopify.com/en/manual/apps/custom-apps), you can skip over the
-auth step and provide the `shop url` and `password`.
+auth step and provide the `shop` URL and `accessToken`.
 
 ```js
 import shopifyGraphQLProxy, { ApiVersion } from "fastify-shopify-graphql-proxy";
@@ -59,10 +59,9 @@ const server = Fastify({
   logger: true,
 });
 
-server.register(shopifyGraphQLProxy, {
+await server.register(shopifyGraphQLProxy, {
   shop: "https://my-shopify-store.myshopify.com",
-  password: "SHOPIFY_API_ACCESS_TOKEN",
-  version: ApiVersion.Stable, // API Version "2022-04"
+  accessToken: "SHOPIFY_API_ACCESS_TOKEN",
 });
 
 server.listen(3000, function (err, address) {
@@ -81,7 +80,8 @@ This Fastify plugin will get the shop url and AccessToken from the current sessi
 will need to use `fastify-session` for this to work.
 
 ```js
-import fastifySession from "fastify-session";
+import fastifyCookie from "fastify-cookie";
+import fastifySession from "@fastify/session";
 import createShopifyAuth from "fastify-shopify-auth";
 import shopifyGraphQLProxy, { ApiVersion } from "fastify-shopify-graphql-proxy";
 import Fastify from "fastify";
@@ -90,15 +90,16 @@ const server = Fastify({
   logger: true,
 });
 
-server.register(fastifySession, { secret: "a secret with a minimum length of 32 characters" });
+await server.register(fastifyCookie);
+await server.register(fastifySession, { secret: "a secret with a minimum length of 32 characters" });
 
-server.register(
-  createShopifyAuth({
+await server.register(
+  await createShopifyAuth({
     /* your config here */
   }),
 );
 
-server.register(shopifyGraphQLProxy, {
+await server.register(shopifyGraphQLProxy, {
   version: ApiVersion.Stable, // API Version "2022-04"
 });
 
@@ -118,12 +119,14 @@ server.listen(3000, function (err, address) {
 
 Options:
 
-- `shop` (Default: `undefined`): a string value that is the Shopify URL for your store
-- `accessToken` (Default: `undefined`): a string value that is the Custom App API Key
-- `version` (Default: `Stable`): Shopify GraphQL version (example: `"2022-04"`).
-- `prefix` (Default: `undefined`): You can create a `custom path` for the GraphQL endpoint by specifying a route prefix.
+- `shop` (Optional): a string value that is the Shopify URL for your store. Gets value from `session` if available.
+- `accessToken` (Optional): a string value that is the Custom App API Key. Gets value from `session` if available.
+- `version` (Optional): Shopify GraphQL version (example: `"2022-04"`).
+- `prefix` (Optional): You can set a `custom path` for the shopifyGraphQLProxy GraphQL endpoint by specifying a route
+  prefix.
 
-Here are all the Shopify API GraphQL versions that can be imported and used from `ApiVersion`:
+Here are all the Shopify API GraphQL versions that can be imported from the enum `ApiVersion` and used such as
+`ApiVersion.April22`:
 
 ```sh
 April22 = "2022-04"
