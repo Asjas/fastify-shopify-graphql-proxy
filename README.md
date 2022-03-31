@@ -21,7 +21,6 @@ Any `POST` request made to `/graphql` will be proxied to Shopify's GraphQL API a
 
 The latest versions of the following Node.js versions are tested and supported.
 
-- 12
 - 14
 - 16
 
