@@ -12,20 +12,19 @@ export default async function shopifyGraphQLProxy(fastify: FastifyInstance, prox
     done();
   });
 
-  const shop = "shop" in proxyOptions ? proxyOptions.shop : session.shop;
-  const accessToken = "accessToken" in proxyOptions ? proxyOptions.accessToken : session.accessToken;
-  const version = proxyOptions.version || ApiVersion.Stable;
-
-  if (accessToken == null || shop == null) {
-    throw new Error("Unauthorized, shopifyGraphQLProxy `shop` or `accessToken` arguments are empty.");
-  }
-
   await fastify.register(proxy, {
-    base: shop,
     undici: proxyOptions.undici || {},
   });
 
   fastify.post("/graphql", (_request, reply) => {
+    const shop = "shop" in proxyOptions ? proxyOptions.shop : session.shop;
+    const accessToken = "accessToken" in proxyOptions ? proxyOptions.accessToken : session.accessToken;
+    const version = "version" in proxyOptions ? proxyOptions.version : ApiVersion.Stable;
+
+    if (accessToken == null || shop == null) {
+      throw new Error("Unauthorized, shopifyGraphQLProxy `shop` or `accessToken` arguments are empty.");
+    }
+
     reply.from(`${shop}/admin/api/${version}/graphql.json`, {
       rewriteRequestHeaders(_originalReq, headers) {
         const modifiedHeaders: ShopifyHTTPHeaders = {
