@@ -17,10 +17,9 @@
     "build": "tsdx build",
     "clean": "rimraf dist",
     "prepare": "tsdx build",
-    "test": "tap",
-    "test:w": "tap -w",
-    "test:inspect": "tap -O -T --node-arg=--inspect-brk",
-    "coverage": "npm test -- --coverage-report=lcov",
+    "test": "vitest run",
+    "test:w": "vitest watch",
+    "coverage": "vitest coverage",
     "check-types": "tsc",
     "lint": "eslint --ext .ts .",
     "lint-fix": "npm run lint -- --fix",
@@ -34,17 +33,16 @@
   },
   "devDependencies": {
     "@types/node": "17.0.23",
-    "@types/tap": "15.0.6",
+    "c8": "7.11.0",
     "eslint-config-asjas": "2.0.2",
     "fastify": "3.27.4",
     "husky": "7.0.4",
     "lint-staged": "12.3.7",
     "npm-run-all": "4.1.5",
-    "tap": "16.0.1",
-    "ts-node": "10.7.0",
     "tsdx": "0.14.1",
     "tslib": "2.3.1",
-    "typescript": "4.6.3"
+    "typescript": "4.6.3",
+    "vitest": "0.8.1"
   },
   "husky": {
     "hooks": {
