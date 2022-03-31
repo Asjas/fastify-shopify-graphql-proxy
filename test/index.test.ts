@@ -26,8 +26,6 @@ describe("shopifyGraphQLProxy", () => {
       version: ApiVersion.Stable,
     });
 
-    await server.inject({ method: "POST", url: "/graphql", payload: { some: "data" } });
-
     const response = await server.inject({ method: "POST", url: "/graphql", payload: { some: "data" } });
 
     assert.equal(response.json().statusCode, 500);

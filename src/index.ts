@@ -1,5 +1,5 @@
 import proxy from "fastify-reply-from";
-import type { FastifyInstance } from "fastify";
+import { FastifyInstance } from "fastify";
 import { ShopifySession, ProxyOptions, ApiVersion, ShopifyHTTPHeaders } from "./types";
 
 export default async function shopifyGraphQLProxy(fastify: FastifyInstance, proxyOptions: ProxyOptions) {
