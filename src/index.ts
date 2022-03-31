@@ -17,11 +17,12 @@ export default async function shopifyGraphQLProxy(fastify: FastifyInstance, prox
   const version = proxyOptions.version || ApiVersion.Stable;
 
   if (accessToken == null || shop == null) {
-    throw new Error("Unauthorized, Shopify `accessToken` or `shop` arguments are empty.");
+    throw new Error("Unauthorized, shopifyGraphQLProxy `shop` or `accessToken` arguments are empty.");
   }
 
   await fastify.register(proxy, {
     base: shop,
+    undici: proxyOptions.undici || {},
   });
 
   fastify.post("/graphql", (_request, reply) => {

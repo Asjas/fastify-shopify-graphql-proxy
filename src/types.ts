@@ -1,4 +1,4 @@
-import { IncomingHttpHeaders } from "http";
+import type { IncomingHttpHeaders } from "http";
 
 export enum ApiVersion {
   April22 = "2022-04",
@@ -24,6 +24,7 @@ export interface ProxyOptions {
   shop?: string;
   accessToken?: string;
   version?: ApiVersion;
+  undici?: any;
 }
 
 declare module "fastify" {
