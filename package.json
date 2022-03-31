@@ -19,7 +19,7 @@
     "prepare": "tsdx build",
     "test": "vitest run",
     "test:w": "vitest watch",
-    "coverage": "vitest coverage",
+    "coverage": "vitest run --coverage",
     "check-types": "tsc",
     "lint": "eslint --ext .ts .",
     "lint-fix": "npm run lint -- --fix",
