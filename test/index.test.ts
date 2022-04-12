@@ -17,7 +17,7 @@ const mockAgent = new MockAgent({ connections: 1 });
 
 setGlobalDispatcher(mockAgent);
 
-describe("shopifyGraphQLProxy", () => {
+describe.concurrent("shopifyGraphQLProxy", () => {
   test("should throw error if shop argument is missing in plugin registration", async () => {
     const server = fastify({ logger: false });
 
