@@ -1,4 +1,4 @@
-import proxy from "fastify-reply-from";
+import proxy from "@fastify/reply-from";
 import { FastifyInstance } from "fastify";
 import { ShopifySession, ProxyOptions, ApiVersion, ShopifyHTTPHeaders } from "./types";
 

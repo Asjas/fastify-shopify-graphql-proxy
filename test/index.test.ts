@@ -2,7 +2,7 @@ import { describe, test, assert, expect } from "vitest";
 import { MockAgent, setGlobalDispatcher } from "undici";
 import fastify from "fastify";
 import fastifySession from "@fastify/session";
-import fastifyCookie from "fastify-cookie";
+import fastifyCookie from "@fastify/cookie";
 import shopifyGraphQLProxy from "../src";
 import { ApiVersion } from "../src/types";
 
