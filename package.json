@@ -29,7 +29,7 @@
     "validate": "npm-run-all --parallel check-types check-format lint build"
   },
   "dependencies": {
-    "@fastify/reply-from": "7.0.1"
+    "@fastify/reply-from": "8.0.0"
   },
   "devDependencies": {
     "@fastify/cookie": "6.0.0",
