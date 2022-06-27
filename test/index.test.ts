@@ -40,6 +40,8 @@ describe.concurrent("shopifyGraphQLProxy", () => {
   test("should throw error if accessToken argument is missing in plugin registration", async () => {
     const server = fastify({ logger: false });
 
+    await server.register(fastifyCookie);
+
     await server.register(shopifyGraphQLProxy, {
       shop: "https://my-shopify-store.myshopify.com",
       version: ApiVersion.Stable,
@@ -101,6 +103,7 @@ describe.concurrent("shopifyGraphQLProxy", () => {
     const server = fastify({ logger: false });
 
     await server.register(fastifyCookie);
+
     await server.register(fastifySession, { secret: "a secret with minimum length of 32 characters" });
 
     server.addHook("onRequest", (request, reply, done) => {
@@ -140,6 +143,8 @@ describe.concurrent("shopifyGraphQLProxy", () => {
 
     const server = fastify({ logger: false });
 
+    await server.register(fastifyCookie);
+
     await server.register(shopifyGraphQLProxy, {
       shop: "https://my-shopify-store.myshopify.com",
       accessToken: "SOME_FAKE_TOKEN",
@@ -171,6 +176,8 @@ describe.concurrent("shopifyGraphQLProxy", () => {
     );
 
     const server = fastify({ logger: false });
+
+    await server.register(fastifyCookie);
 
     await server.register(shopifyGraphQLProxy, {
       shop: "https://my-shopify-store.myshopify.com",
