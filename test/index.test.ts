@@ -21,6 +21,8 @@ describe.concurrent("shopifyGraphQLProxy", () => {
   test("should throw error if shop argument is missing in plugin registration", async () => {
     const server = fastify({ logger: false });
 
+    await server.register(fastifyCookie);
+
     await server.register(shopifyGraphQLProxy, {
       accessToken: "SHOPIFY_API_ACCESS_TOKEN",
       version: ApiVersion.Stable,
@@ -65,13 +67,15 @@ describe.concurrent("shopifyGraphQLProxy", () => {
 
     const server = fastify({ logger: false });
 
+    await server.register(fastifyCookie);
+
     await server.register(shopifyGraphQLProxy, {
       shop: "https://my-shopify-store.myshopify.com",
       accessToken: "SOME_FAKE_TOKEN",
       undici: mockPool,
     });
 
-    await server.listen(3000);
+    await server.listen({ port: 3000 });
 
     const response = await server.inject({ method: "POST", url: "/graphql", payload: { some: "data" } });
 
@@ -111,7 +115,7 @@ describe.concurrent("shopifyGraphQLProxy", () => {
       undici: mockPool,
     });
 
-    await server.listen(3001);
+    await server.listen({ port: 3001 });
 
     const response = await server.inject({ method: "POST", url: "/graphql", payload: { some: "data" } });
 
@@ -143,7 +147,7 @@ describe.concurrent("shopifyGraphQLProxy", () => {
       undici: mockPool,
     });
 
-    await server.listen(3003);
+    await server.listen({ port: 3003 });
 
     const response = await server.inject({ method: "POST", url: "/graphql", payload: { some: "data" } });
 
@@ -176,7 +180,7 @@ describe.concurrent("shopifyGraphQLProxy", () => {
       undici: mockPool,
     });
 
-    await server.listen(3002);
+    await server.listen({ port: 3002 });
 
     const response = await server.inject({ method: "POST", url: "/shopify/graphql", payload: { some: "data" } });
 
