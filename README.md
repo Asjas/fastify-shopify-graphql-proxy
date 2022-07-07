@@ -15,7 +15,7 @@ Any `POST` request made to `/graphql` will be proxied to Shopify's GraphQL API a
 
 ## Supported Fastify versions
 
-- Fastify v3
+- Fastify v4.x
 
 ## Supported Node.js versions
 
