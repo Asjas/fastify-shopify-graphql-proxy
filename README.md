@@ -65,7 +65,7 @@ await server.register(shopifyGraphQLProxy, {
   accessToken: "SHOPIFY_API_ACCESS_TOKEN",
 });
 
-server.listen(3000, function (err, address) {
+server.listen({ port: 3000 }, function (err, address) {
   if (err) {
     server.log.error(err);
     process.exit(1);
@@ -104,7 +104,7 @@ await server.register(shopifyGraphQLProxy, {
   version: ApiVersion.Stable, // API Version "2022-04"
 });
 
-server.listen(3000, function (err, address) {
+server.listen({ port: 3000 }, function (err, address) {
   if (err) {
     server.log.error(err);
     process.exit(1);
