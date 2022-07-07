@@ -129,12 +129,12 @@ Here are all the Shopify API GraphQL versions that can be imported from the enum
 `ApiVersion.April22`:
 
 ```sh
+July22 = "2022-07"
 April22 = "2022-04"
 January22 = "2022-01"
 October21 = "2021-10"
 July21 = "2021-07"
-April21 = "2021-04"
-Stable = "2022-04"
+Stable = "2022-07"
 Unstable = 'Unstable'
 Unversioned = 'unversioned'
 ```
