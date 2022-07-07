@@ -61,6 +61,7 @@ const server = Fastify({
 
 await server.register(shopifyGraphQLProxy, {
   shop: "https://my-shopify-store.myshopify.com",
+  version: ApiVersion.Stable,
   accessToken: "SHOPIFY_API_ACCESS_TOKEN",
 });
 
