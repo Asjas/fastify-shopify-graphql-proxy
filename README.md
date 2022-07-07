@@ -41,7 +41,7 @@ yarn add fastify-shopify-graphql-proxy
 or `pnpm`:
 
 ```sh
-pnpm add fastify-shopify-graphql-proxy
+pnpm add --save-exact fastify-shopify-graphql-proxy
 ```
 
 ## Code Examples
