@@ -1,6 +1,7 @@
 import type { IncomingHttpHeaders } from "http";
 
 export enum ApiVersion {
+  October22 = "2022-10",
   July22 = "2022-07",
   April22 = "2022-04",
   January22 = "2022-01",
