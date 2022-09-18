@@ -35,7 +35,7 @@
     "@fastify/cookie": "8.1.0",
     "@fastify/session": "10.0.0",
     "@types/node": "18.0.3",
-    "@vitest/coverage-c8": "0.23.2",
+    "@vitest/coverage-c8": "0.23.4",
     "c8": "7.11.3",
     "eslint-config-asjas": "2.0.3",
     "fastify": "4.6.0",
