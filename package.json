@@ -32,7 +32,7 @@
     "@fastify/reply-from": "8.3.0"
   },
   "devDependencies": {
-    "@fastify/cookie": "8.1.0",
+    "@fastify/cookie": "8.2.0",
     "@fastify/session": "10.0.0",
     "@types/node": "18.0.3",
     "@vitest/coverage-c8": "0.23.4",
