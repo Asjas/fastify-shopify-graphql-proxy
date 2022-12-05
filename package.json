@@ -35,7 +35,7 @@
     "@fastify/cookie": "8.3.0",
     "@fastify/session": "10.1.0",
     "@types/node": "18.11.10",
-    "@vitest/coverage-c8": "0.25.3",
+    "@vitest/coverage-c8": "0.25.4",
     "c8": "7.11.3",
     "eslint-config-asjas": "2.0.3",
     "fastify": "4.10.2",
@@ -46,7 +46,7 @@
     "tslib": "2.4.1",
     "typescript": "4.9.3",
     "vite": "3.2.5",
-    "vitest": "0.25.3"
+    "vitest": "0.25.4"
   },
   "husky": {
     "hooks": {
