@@ -34,7 +34,7 @@
   "devDependencies": {
     "@fastify/cookie": "8.3.0",
     "@fastify/session": "10.1.0",
-    "@types/node": "18.11.17",
+    "@types/node": "18.11.18",
     "@vitest/coverage-c8": "0.26.2",
     "c8": "7.11.3",
     "eslint-config-asjas": "2.0.3",
