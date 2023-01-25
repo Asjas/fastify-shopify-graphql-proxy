@@ -17,7 +17,7 @@
   "trailingComma": "all",
   "useTabs": false,
   "importOrder": [
-    "^(@fastify$)|^(fastify(.*)$)",
+    "^(@fastify(.*)$)|^(fastify$)",
     "^(vitest$)|^(vitest/(.*)$)",
     "<THIRD_PARTY_MODULES>",
     "^types$",
