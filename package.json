@@ -35,7 +35,7 @@
     "@fastify/session": "10.1.1",
     "@ianvs/prettier-plugin-sort-imports": "3.7.1",
     "@types/node": "18.11.18",
-    "@vitest/coverage-c8": "0.28.1",
+    "@vitest/coverage-c8": "0.28.2",
     "c8": "7.12.0",
     "husky": "8.0.3",
     "lint-staged": "13.1.0",
@@ -44,7 +44,7 @@
     "tsup": "6.5.0",
     "typescript": "4.9.4",
     "vite": "4.0.4",
-    "vitest": "0.28.1"
+    "vitest": "0.28.2"
   },
   "husky": {
     "hooks": {
