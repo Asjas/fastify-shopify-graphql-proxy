@@ -34,6 +34,7 @@
     "@fastify/cookie": "8.3.0",
     "@fastify/session": "10.1.1",
     "@ianvs/prettier-plugin-sort-imports": "3.7.1",
+    "@size-limit/preset-small-lib": "^8.1.2",
     "@types/node": "18.11.18",
     "@vitest/coverage-c8": "0.28.1",
     "c8": "7.12.0",
