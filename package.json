@@ -21,12 +21,10 @@
     "test:w": "vitest watch",
     "coverage": "c8 --reporter=lcov vitest run --coverage",
     "check-types": "tsc",
-    "lint": "eslint --ext .ts .",
-    "lint-fix": "npm run lint -- --fix",
     "prettier": "prettier --ignore-path .eslintignore \"**/*.+(ts)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
-    "validate": "npm-run-all --parallel check-types check-format lint build"
+    "validate": "npm-run-all --parallel check-types check-format build"
   },
   "dependencies": {
     "@fastify/reply-from": "8.3.1"
@@ -37,7 +35,6 @@
     "@types/node": "18.11.18",
     "@vitest/coverage-c8": "0.28.1",
     "c8": "7.11.3",
-    "eslint-config-asjas": "2.0.3",
     "fastify": "4.12.0",
     "husky": "8.0.3",
     "lint-staged": "13.1.0",
@@ -54,9 +51,6 @@
     }
   },
   "lint-staged": {
-    "*.+(ts)": [
-      "eslint"
-    ],
     "**/**/*.+(ts)": [
       "prettier --write",
       "git add"
