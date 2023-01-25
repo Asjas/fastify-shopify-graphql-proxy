@@ -1,6 +1,7 @@
-.editorconfig
-.git
-.DS_Store
-.gitignore
+.vscode
 .github
-coverage/
+.nyc_output
+.DS_Store
+node_modules
+test
+renovate.json
