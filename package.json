@@ -27,7 +27,7 @@
     "analyze": "size-limit --why"
   },
   "dependencies": {
-    "@fastify/reply-from": "8.4.1",
+    "@fastify/reply-from": "8.4.2",
     "fastify": "4.13.0"
   },
   "devDependencies": {
