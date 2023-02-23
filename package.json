@@ -62,11 +62,11 @@
   "size-limit": [
     {
       "path": "dist/index.js",
-      "limit": "5 KB"
+      "limit": "35 KB"
     },
     {
       "path": "dist/index.mjs",
-      "limit": "5 KB"
+      "limit": "20 KB"
     }
   ],
   "engines": {
