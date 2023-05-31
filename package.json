@@ -36,7 +36,7 @@
     "@ianvs/prettier-plugin-sort-imports": "4.0.1",
     "@size-limit/preset-small-lib": "^8.1.2",
     "@types/node": "18.16.16",
-    "@vitest/coverage-c8": "0.31.2",
+    "@vitest/coverage-c8": "0.31.3",
     "c8": "7.14.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
@@ -46,7 +46,7 @@
     "tsup": "6.7.0",
     "typescript": "5.0.4",
     "vite": "4.3.9",
-    "vitest": "0.31.2"
+    "vitest": "0.31.3"
   },
   "husky": {
     "hooks": {
