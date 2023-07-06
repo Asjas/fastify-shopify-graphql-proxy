@@ -45,7 +45,7 @@
     "size-limit": "^8.1.2",
     "tsup": "7.1.0",
     "typescript": "5.1.6",
-    "vite": "4.3.9",
+    "vite": "4.4.0",
     "vitest": "0.32.4"
   },
   "husky": {
