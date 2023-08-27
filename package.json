@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@fastify/reply-from": "9.4.0",
-    "fastify": "4.21.0"
+    "fastify": "4.22.0"
   },
   "devDependencies": {
     "@fastify/cookie": "9.0.4",
