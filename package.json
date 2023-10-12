@@ -33,7 +33,7 @@
   "devDependencies": {
     "@fastify/cookie": "9.1.0",
     "@fastify/session": "10.5.0",
-    "@ianvs/prettier-plugin-sort-imports": "4.1.0",
+    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
     "@size-limit/preset-small-lib": "^9.0.0",
     "@types/node": "18.18.4",
     "@vitest/coverage-c8": "0.33.0",
